@@ -50,4 +50,3 @@ res3 = res3.select(res3.date, res3.prev_new_cases, res3.new_cases, res3.delta)
 print(res1.show(15))
 print(res2.show(10))
 print(res3.show())
- 
