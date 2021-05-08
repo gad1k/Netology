@@ -1,7 +1,10 @@
+import sys
+
 from pyspark.sql import SparkSession
 from pyspark.sql.window import Window
 
 import pyspark.sql.functions as f
+from pyspark.sql.functions import round as round
 from pyspark.sql.functions import max as max
 from pyspark.sql.functions import lag as lag
 
@@ -9,14 +12,15 @@ spark = SparkSession.builder \
     .appName('SparkLab') \
     .getOrCreate()
 
-df = spark.read.option('header', True).format('csv').load('owid-covid-data.csv')
-df = df.withColumn('reproduction_rate', df.reproduction_rate.cast('float'))
+df = spark.read.option('header', True).format('csv').load(sys.argv[1] + 'owid-covid-data.csv')
 df = df.withColumn('new_cases', df.new_cases.cast('int'))
 
 
-res1 = df.select(df.iso_code, df.location, df.date, df.reproduction_rate) \
-         .filter(df.date == '2020-03-21') \
-         .sort(df.reproduction_rate.desc())
+res1 = df.filter(df.date == '2021-03-31') \
+         .filter(~df.iso_code.rlike('OWID')) \
+         .withColumn('ill_percent', round(df.total_cases / df.population * 100, 2))\
+         .select(df.iso_code, df.location, 'ill_percent') \
+         .sort('ill_percent', ascending=False)
 
   
 res2_t1 = df.select(df.date, df.location, df.new_cases) \
