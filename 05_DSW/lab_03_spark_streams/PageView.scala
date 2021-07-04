@@ -1,0 +1,1 @@
+case class PageView (userid: String, pageid: String)
