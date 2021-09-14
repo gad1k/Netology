@@ -1,0 +1,29 @@
+docker image build --tag netology-ml:netology-ml .
+
+[+] Building 149.8s (10/10) FINISHED
+ => [internal] load build definition from Dockerfile                                                                                                                                        0.0s
+ => => transferring dockerfile: 295B                                                                                                                                                        0.0s
+ => [internal] load .dockerignore                                                                                                                                                           0.0s
+ => => transferring context: 2B                                                                                                                                                             0.0s
+ => [internal] load metadata for docker.io/continuumio/miniconda3:latest                                                                                                                    2.4s
+ => [1/5] FROM docker.io/continuumio/miniconda3:latest@sha256:592a60b95b547f31c11dc6593832e962952e3178f1fa11db37f43a2afe8df8d7                                                             39.4s
+ => => resolve docker.io/continuumio/miniconda3:latest@sha256:592a60b95b547f31c11dc6593832e962952e3178f1fa11db37f43a2afe8df8d7                                                              0.0s
+ => => sha256:592a60b95b547f31c11dc6593832e962952e3178f1fa11db37f43a2afe8df8d7 1.36kB / 1.36kB                                                                                              0.0s
+ => => sha256:92d7896124d940cb1815d3b59d8eaab9a8e86c801af2437658581465044b0a06 953B / 953B                                                                                                  0.0s
+ => => sha256:67414e5844b666d3d44cb5c43de3f4aa8645e17d462951003fe622c9ae894983 4.08kB / 4.08kB                                                                                              0.0s
+ => => sha256:33847f680f63fb1b343a9fc782e267b5abdbdb50d65d4b9bd2a136291d67cf75 27.15MB / 27.15MB                                                                                           19.1s
+ => => sha256:f5a80bcd14133fe8e0166900eb4bfb714939510e490403e82f3a32776cd41a8f 51.25MB / 51.25MB                                                                                           33.9s
+ => => sha256:8d0d14d1334a21b14dcb9a9bbb16aa692282173db137856ce8c315a05e3397c7 58.19MB / 58.19MB                                                                                           25.5s
+ => => extracting sha256:33847f680f63fb1b343a9fc782e267b5abdbdb50d65d4b9bd2a136291d67cf75                                                                                                   1.3s
+ => => extracting sha256:f5a80bcd14133fe8e0166900eb4bfb714939510e490403e82f3a32776cd41a8f                                                                                                   2.3s
+ => => extracting sha256:8d0d14d1334a21b14dcb9a9bbb16aa692282173db137856ce8c315a05e3397c7                                                                                                   2.8s
+ => [internal] load build context                                                                                                                                                           0.0s
+ => => transferring context: 53B                                                                                                                                                            0.0s
+ => [2/5] RUN apt-get update &&      apt-get upgrade -y &&     apt-get install -y python python-pip &&     pip install mlflow boto3 pymysql                                               104.0s
+ => [3/5] WORKDIR /app                                                                                                                                                                      0.0s
+ => [4/5] ADD 1.sh .                                                                                                                                                                        0.0s
+ => [5/5] RUN chmod ugo+x "1.sh"                                                                                                                                                            0.4s
+ => exporting to image                                                                                                                                                                      3.5s
+ => => exporting layers                                                                                                                                                                     3.5s
+ => => writing image sha256:f85f7fd1827759d4a75a4e8dac9dbef4af18fab03c4f764c87d678ce3582ef2c                                                                                                0.0s
+ => => naming to docker.io/library/netology-ml:netology-ml
