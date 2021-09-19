@@ -1,0 +1,47 @@
+- name: netology-ml
+  hosts: all
+  become: yes
+
+  vars:
+    packages:
+      - net-tools
+      - git
+      - tree
+      - htop
+      - mc
+      - vim
+
+  tasks:
+    - name: Task Ping
+      ping:
+
+    - name: Update and Upgrade Apt Packages
+      apt:
+        update_cache: yes
+        upgrade: 'yes'
+
+    - name: Install Packages
+      apt:
+        name: '{{packages}}'
+        state: latest
+
+    - name: Copy Files
+      copy:
+        src: test.txt
+        dest: /home/ansible
+
+    - name: Create Groups
+      group:
+        name: '{{item}}'
+        state: present
+      loop:
+        - devops_1
+        - test_1
+
+    - name: Create Users
+      user:
+        name: '{{item.name}}'
+        home: '/home/{{item.home_dir}}'
+      with_items:
+        - {name: devops_1, home_dir: devops_1}
+        - {name: test_1, home_dir: test_1}

@@ -1,0 +1,41 @@
+root@be3573fb5fcd:/# ansible-playbook /app/homework.yml
+
+PLAY [netology-ml] ****************************************************************************************************
+TASK [Gathering Facts] ************************************************************************************************
+ok: [node1]
+ok: [node2]
+
+TASK [Task Ping] ******************************************************************************************************
+ok: [node1]
+ok: [node2]
+
+TASK [Update and Upgrade Apt Packages] ********************************************************************************
+[WARNING]: Updating cache and auto-installing missing dependency: python3-apt
+ok: [node2]
+ok: [node1]
+
+TASK [Install Packages] ***********************************************************************************************
+changed: [node2]
+changed: [node1]
+
+TASK [Copy Files] *****************************************************************************************************
+changed: [node2]
+changed: [node1]
+
+TASK [Create Groups] **************************************************************************************************
+changed: [node2] => (item=devops_1)
+changed: [node1] => (item=devops_1)
+changed: [node1] => (item=test_1)
+changed: [node2] => (item=test_1)
+
+TASK [Create Users] ***************************************************************************************************
+changed: [node1] => (item={'name': 'devops_1', 'home_dir': 'devops_1'})
+changed: [node2] => (item={'name': 'devops_1', 'home_dir': 'devops_1'})
+changed: [node2] => (item={'name': 'test_1', 'home_dir': 'test_1'})
+changed: [node1] => (item={'name': 'test_1', 'home_dir': 'test_1'})
+
+PLAY RECAP ************************************************************************************************************
+node1                      : ok=7    changed=4    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+node2                      : ok=7    changed=4    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+
+root@be3573fb5fcd:/#
