@@ -1,0 +1,31 @@
+version: '3.5'
+networks:
+  gitlab-network:
+    name: gitlab-network
+    ipam:
+      config:
+        - subnet: 192.168.1.0/24
+
+services:
+  runner:
+    image: ubuntu:latest
+    container_name: runner
+    volumes:
+      - .:/app
+    networks:
+      gitlab-network:
+        ipv4_address: 192.168.1.2
+    command:
+      - bash
+      - -c
+      - |
+        apt-get update && apt-get upgrade -y
+        apt-get install sudo
+        apt-get install curl -y
+
+        curl -L "https://packages.gitlab.com/install/repositories/runner/gitlab-runner/script.deb.sh" | sudo bash
+        apt-get install gitlab-runner -y
+
+        cp /app/sudoers /etc -f
+
+        sleep infinity

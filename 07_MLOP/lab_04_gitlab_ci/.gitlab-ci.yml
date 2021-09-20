@@ -1,0 +1,20 @@
+stages:
+  - build
+  - test
+
+build-job:
+  stage: build
+  script:
+    - echo "Building"
+    - sudo mkdir /build
+    - sudo touch /build/test.txt
+  tags:
+    - netology
+
+test-job:
+  stage: test
+  script:
+    - echo "Testing"
+    - test -f /build/test1.txt && echo "File Exists" || echo "File doesn't Exist"
+  tags:
+    - netology
