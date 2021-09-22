@@ -1,4 +1,5 @@
 version: '3.5'
+
 networks:
   gitlab-network:
     name: gitlab-network
