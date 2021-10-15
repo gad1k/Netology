@@ -1,0 +1,18 @@
+Invoice ID,Branch,City,Customer type,Gender,Product line,Unit price,Quantity,Tax 5%,Total,Date,Time,Payment,cogs,gross margin percentage,gross income,Rating
+480-63-2856,C,Naypyitaw,Normal,Male,Food and beverages,19.25,8,7.7,161.7,1/23/2019,18:37,Ewallet,154,4.761904762,7.7,6.6
+565-80-5980,C,Naypyitaw,Member,Female,Home and lifestyle,47.38,4,9.476,198.996,1/23/2019,10:25,Cash,189.52,4.761904762,9.476,7.1
+731-81-9469,C,Naypyitaw,Member,Female,Sports and travel,89.8,10,44.9,942.9,1/23/2019,13:00,Credit card,898,4.761904762,44.9,5.4
+434-83-9547,C,Naypyitaw,Member,Male,Food and beverages,38.47,8,15.388,323.148,1/23/2019,11:51,Cash,307.76,4.761904762,15.388,7.7
+604-70-6476,A,Yangon,Member,Male,Fashion accessories,17.94,5,4.485,94.185,1/23/2019,14:04,Ewallet,89.7,4.761904762,4.485,6.8
+740-22-2500,C,Naypyitaw,Normal,Female,Electronic accessories,84.05,3,12.6075,264.7575,1/23/2019,13:29,Cash,252.15,4.761904762,12.6075,9.8
+767-05-1286,C,Naypyitaw,Member,Female,Home and lifestyle,83.77,6,25.131,527.751,1/23/2019,12:10,Ewallet,502.62,4.761904762,25.131,5.4
+213-32-1216,A,Yangon,Normal,Female,Electronic accessories,66.06,6,19.818,416.178,1/23/2019,10:28,Cash,396.36,4.761904762,19.818,7.3
+219-61-4139,C,Naypyitaw,Normal,Male,Electronic accessories,83.08,1,4.154,87.234,1/23/2019,17:16,Ewallet,83.08,4.761904762,4.154,6.4
+318-12-0304,A,Yangon,Normal,Male,Fashion accessories,30.61,1,1.5305,32.1405,1/23/2019,12:20,Ewallet,30.61,4.761904762,1.5305,5.2
+828-46-6863,A,Yangon,Member,Male,Food and beverages,98.53,6,29.559,620.739,1/23/2019,11:22,Credit card,591.18,4.761904762,29.559,4
+790-38-4466,C,Naypyitaw,Normal,Female,Health and beauty,10.99,5,2.7475,57.6975,1/23/2019,10:18,Credit card,54.95,4.761904762,2.7475,9.3
+477-59-2456,C,Naypyitaw,Normal,Female,Fashion accessories,45.44,7,15.904,333.984,1/23/2019,11:15,Cash,318.08,4.761904762,15.904,9.2
+160-22-2687,A,Yangon,Member,Female,Health and beauty,95.95,5,23.9875,503.7375,1/23/2019,14:21,Ewallet,479.75,4.761904762,23.9875,8.8
+316-66-3011,A,Yangon,Member,Female,Food and beverages,47.63,9,21.4335,450.1035,1/23/2019,12:35,Cash,428.67,4.761904762,21.4335,5
+809-46-1866,A,Yangon,Normal,Male,Health and beauty,58.15,4,11.63,244.23,1/23/2019,17:44,Cash,232.6,4.761904762,11.63,8.4
+148-41-7930,C,Naypyitaw,Normal,Male,Health and beauty,99.96,7,34.986,734.706,1/23/2019,10:33,Cash,699.72,4.761904762,34.986,6.1

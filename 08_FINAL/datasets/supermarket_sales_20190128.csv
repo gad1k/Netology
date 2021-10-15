@@ -1,0 +1,15 @@
+Invoice ID,Branch,City,Customer type,Gender,Product line,Unit price,Quantity,Tax 5%,Total,Date,Time,Payment,cogs,gross margin percentage,gross income,Rating
+149-71-6266,B,Mandalay,Member,Male,Sports and travel,78.07,9,35.1315,737.7615,1/28/2019,12:43,Cash,702.63,4.761904762,35.1315,4.5
+400-89-4171,C,Naypyitaw,Normal,Female,Sports and travel,80.97,8,32.388,680.148,1/28/2019,13:05,Cash,647.76,4.761904762,32.388,9.3
+342-65-4817,C,Naypyitaw,Member,Male,Health and beauty,86.8,3,13.02,273.42,1/28/2019,16:47,Ewallet,260.4,4.761904762,13.02,9.9
+593-65-1552,C,Naypyitaw,Normal,Female,Home and lifestyle,69.81,4,13.962,293.202,1/28/2019,20:50,Credit card,279.24,4.761904762,13.962,5.9
+211-30-9270,C,Naypyitaw,Normal,Male,Health and beauty,17.41,5,4.3525,91.4025,1/28/2019,15:16,Credit card,87.05,4.761904762,4.3525,4.9
+372-26-1506,C,Naypyitaw,Normal,Female,Fashion accessories,23.82,5,5.955,125.055,1/28/2019,19:24,Ewallet,119.1,4.761904762,5.955,5.4
+390-80-5128,B,Mandalay,Member,Female,Health and beauty,19.15,1,0.9575,20.1075,1/28/2019,17:58,Credit card,19.15,4.761904762,0.9575,9.5
+726-29-6793,A,Yangon,Member,Male,Electronic accessories,24.18,8,9.672,203.112,1/28/2019,20:54,Ewallet,193.44,4.761904762,9.672,9.8
+243-47-2663,C,Naypyitaw,Member,Male,Electronic accessories,18.77,6,5.631,118.251,1/28/2019,16:43,Credit card,112.62,4.761904762,5.631,5.5
+222-42-0244,B,Mandalay,Member,Female,Health and beauty,72.11,9,32.4495,681.4395,1/28/2019,13:53,Credit card,648.99,4.761904762,32.4495,7.7
+544-55-9589,B,Mandalay,Member,Female,Electronic accessories,21.43,10,10.715,225.015,1/28/2019,11:51,Cash,214.3,4.761904762,10.715,6.2
+699-88-1972,B,Mandalay,Normal,Male,Health and beauty,99.16,8,39.664,832.944,1/28/2019,17:47,Credit card,793.28,4.761904762,39.664,4.2
+865-41-9075,A,Yangon,Normal,Male,Food and beverages,11.53,7,4.0355,84.7455,1/28/2019,17:35,Cash,80.71,4.761904762,4.0355,8.1
+430-53-4718,B,Mandalay,Member,Male,Health and beauty,75.37,8,30.148,633.108,1/28/2019,15:46,Credit card,602.96,4.761904762,30.148,8.4

@@ -1,0 +1,169 @@
+version: "3"
+
+x-airflow-common: &airflow-common
+  image: apache/airflow:2.1.4
+  environment: &airflow-common-env
+    AIRFLOW__CORE__EXECUTOR: CeleryExecutor
+    AIRFLOW__CORE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@postgres/airflow
+    AIRFLOW__CELERY__RESULT_BACKEND: db+postgresql://airflow:airflow@postgres/airflow
+    AIRFLOW__CELERY__BROKER_URL: redis://:@redis:6379/0
+    AIRFLOW__CORE__FERNET_KEY: ""
+    AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION: "true"
+    AIRFLOW__CORE__LOAD_EXAMPLES: "true"
+    AIRFLOW__API__AUTH_BACKEND: "airflow.api.auth.backend.basic_auth"
+    _PIP_ADDITIONAL_REQUIREMENTS: ${_PIP_ADDITIONAL_REQUIREMENTS:- apache-airflow-providers-oracle}
+  user: "${AIRFLOW_UID:-50000}:${AIRFLOW_GID:-0}"
+  volumes:
+    - ./clients:/opt/airflow/clients
+    - ./dags:/opt/airflow/dags
+    - ./datasets:/opt/airflow/datasets
+    - ./logs:/opt/airflow/logs
+    - ./plugins:/opt/airflow/plugins
+  depends_on: &airflow-common-depends-on
+    redis:
+      condition: service_healthy
+    postgres:
+      condition: service_healthy
+
+services:
+  oracle:
+    container_name: oracle
+    restart: always
+    image: oracleinanutshell/oracle-xe-11g:latest
+    ports:
+      - 1521:1521
+      
+  postgres:
+    container_name: postgres
+    restart: always
+    image: postgres:13
+    environment:
+      POSTGRES_USER: airflow
+      POSTGRES_PASSWORD: airflow
+      POSTGRES_DB: airflow
+    volumes:
+      - postgres-volume:/var/lib/postgresql/data    
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "airflow"]
+      interval: 5s
+      retries: 5      
+
+  redis:
+    container_name: redis
+    restart: always
+    image: redis:latest
+    expose:
+      - 6379
+    volumes:
+      - redis-volume:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 30s
+      retries: 50
+
+  airflow-webserver:
+    container_name: webserver
+    <<: *airflow-common
+    restart: always
+    command: webserver
+    ports:
+      - 8080:8080
+    volumes:
+      - ./dags:/usr/local/airflow/dags
+    depends_on:
+      <<: *airflow-common-depends-on
+      airflow-init:
+        condition: service_completed_successfully
+    healthcheck:
+      test: ["CMD", "curl", "--fail", "http://localhost:8080/health"]
+      interval: 10s
+      timeout: 10s
+      retries: 5        
+
+  airflow-scheduler:
+    container_name: scheduler
+    <<: *airflow-common
+    restart: always
+    command: scheduler   
+    depends_on:
+      <<: *airflow-common-depends-on
+      airflow-init:
+        condition: service_completed_successfully
+    healthcheck:
+      test: ["CMD-SHELL", 'airflow jobs check --job-type SchedulerJob --hostname "$${HOSTNAME}"']
+      interval: 10s
+      timeout: 10s
+      retries: 5
+
+  airflow-worker:
+    container_name: worker
+    <<: *airflow-common
+    restart: always    
+    environment:
+      <<: *airflow-common-env
+      DUMB_INIT_SETSID: 0
+      LD_LIBRARY_PATH: "/opt/airflow/clients"    
+    command: celery worker  #apt-get install libaio1
+    depends_on:
+      <<: *airflow-common-depends-on
+      airflow-init:
+        condition: service_completed_successfully      
+    healthcheck:
+      test: ["CMD-SHELL", 'celery --app airflow.executors.celery_executor.app inspect ping -d "celery@$${HOSTNAME}"']
+      interval: 10s
+      timeout: 10s
+      retries: 5      
+
+  flower:
+    container_name: flower
+    <<: *airflow-common
+    restart: always
+    command: celery flower
+    ports:
+      - 5555:5555
+    depends_on:
+      <<: *airflow-common-depends-on
+      airflow-init:
+        condition: service_completed_successfully
+    healthcheck:
+      test: ["CMD", "curl", "--fail", "http://localhost:5555/"]
+      interval: 10s
+      timeout: 10s
+      retries: 5 
+
+  airflow-cli:
+    <<: *airflow-common
+    profiles:
+      - debug
+    environment:
+      <<: *airflow-common-env
+      CONNECTION_CHECK_MAX_COUNT: 0
+    command:
+      - bash
+      - -c
+      - airflow
+
+  airflow-init:
+    container_name: init
+    <<: *airflow-common
+    environment:
+      <<: *airflow-common-env
+      _AIRFLOW_DB_UPGRADE: "true"
+      _AIRFLOW_WWW_USER_CREATE: "true"
+      _AIRFLOW_WWW_USER_USERNAME: ${_AIRFLOW_WWW_USER_USERNAME:-airflow}
+      _AIRFLOW_WWW_USER_PASSWORD: ${_AIRFLOW_WWW_USER_PASSWORD:-airflow}    
+    entrypoint: /bin/bash
+    command:
+      - -c
+      - |
+        mkdir -p /sources/clients /sources/dags /sources/logs /sources/plugins
+        chown -R "${AIRFLOW_UID}:${AIRFLOW_GID}" /sources/{clients,dags,logs,plugins}
+        exec /entrypoint airflow version
+    user: "0:${AIRFLOW_GID:-0}"
+    volumes:
+      - .:/sources
+
+volumes:
+  postgres-volume:
+  redis-volume:

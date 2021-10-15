@@ -1,0 +1,13 @@
+Invoice ID,Branch,City,Customer type,Gender,Product line,Unit price,Quantity,Tax 5%,Total,Date,Time,Payment,cogs,gross margin percentage,gross income,Rating
+479-26-8945,B,Mandalay,Member,Female,Sports and travel,16.49,2,1.649,34.629,2/5/2019,11:32,Ewallet,32.98,4.761904762,1.649,4.6
+210-67-5886,C,Naypyitaw,Member,Female,Health and beauty,98.21,3,14.7315,309.3615,2/5/2019,10:41,Credit card,294.63,4.761904762,14.7315,7.8
+338-65-2210,C,Naypyitaw,Member,Female,Health and beauty,68.6,10,34.3,720.3,2/5/2019,19:57,Cash,686,4.761904762,34.3,9.1
+729-09-9681,A,Yangon,Member,Male,Home and lifestyle,25.91,6,7.773,163.233,2/5/2019,10:16,Ewallet,155.46,4.761904762,7.773,8.7
+181-94-6432,C,Naypyitaw,Member,Male,Fashion accessories,69.33,2,6.933,145.593,2/5/2019,19:05,Ewallet,138.66,4.761904762,6.933,9.7
+374-17-3652,B,Mandalay,Member,Female,Food and beverages,42.82,9,19.269,404.649,2/5/2019,15:26,Credit card,385.38,4.761904762,19.269,8.9
+210-57-1719,B,Mandalay,Normal,Female,Health and beauty,58.24,9,26.208,550.368,2/5/2019,12:34,Cash,524.16,4.761904762,26.208,9.7
+880-35-0356,A,Yangon,Member,Female,Sports and travel,75.2,3,11.28,236.88,2/5/2019,11:51,Ewallet,225.6,4.761904762,11.28,4.8
+307-04-2070,A,Yangon,Member,Female,Fashion accessories,30.62,1,1.531,32.151,2/5/2019,14:14,Credit card,30.62,4.761904762,1.531,4.1
+325-89-4209,A,Yangon,Member,Male,Food and beverages,87.9,1,4.395,92.295,2/5/2019,19:42,Ewallet,87.9,4.761904762,4.395,6.7
+409-49-6995,C,Naypyitaw,Member,Female,Food and beverages,47.27,6,14.181,297.801,2/5/2019,10:17,Cash,283.62,4.761904762,14.181,8.8
+324-92-3863,A,Yangon,Member,Male,Electronic accessories,20.89,2,2.089,43.869,2/5/2019,18:45,Cash,41.78,4.761904762,2.089,9.8

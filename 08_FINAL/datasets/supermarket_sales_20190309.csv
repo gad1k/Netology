@@ -1,0 +1,17 @@
+Invoice ID,Branch,City,Customer type,Gender,Product line,Unit price,Quantity,Tax 5%,Total,Date,Time,Payment,cogs,gross margin percentage,gross income,Rating
+529-56-3974,B,Mandalay,Member,Male,Electronic accessories,25.51,4,5.102,107.142,3/9/2019,17:03,Cash,102.04,4.761904762,5.102,6.8
+132-32-9879,B,Mandalay,Member,Female,Electronic accessories,93.96,4,18.792,394.632,3/9/2019,18:00,Cash,375.84,4.761904762,18.792,9.5
+841-35-6630,C,Naypyitaw,Normal,Female,Electronic accessories,75.91,6,22.773,478.233,3/9/2019,18:21,Cash,455.46,4.761904762,22.773,8.7
+360-39-5055,C,Naypyitaw,Member,Male,Sports and travel,48.91,5,12.2275,256.7775,3/9/2019,10:17,Cash,244.55,4.761904762,12.2275,6.6
+219-22-9386,B,Mandalay,Member,Male,Sports and travel,99.96,9,44.982,944.622,3/9/2019,17:26,Credit card,899.64,4.761904762,44.982,4.2
+268-27-6179,B,Mandalay,Member,Female,Fashion accessories,56.47,8,22.588,474.348,3/9/2019,14:57,Ewallet,451.76,4.761904762,22.588,7.3
+157-13-5295,A,Yangon,Member,Male,Health and beauty,51.94,10,25.97,545.37,3/9/2019,18:24,Ewallet,519.4,4.761904762,25.97,6.5
+815-11-1168,A,Yangon,Member,Male,Food and beverages,99.78,5,24.945,523.845,3/9/2019,19:09,Cash,498.9,4.761904762,24.945,5.4
+308-47-4913,A,Yangon,Member,Female,Sports and travel,52.26,10,26.13,548.73,3/9/2019,12:45,Credit card,522.6,4.761904762,26.13,6.2
+489-64-4354,C,Naypyitaw,Normal,Male,Fashion accessories,16.28,1,0.814,17.094,3/9/2019,15:36,Cash,16.28,4.761904762,0.814,5
+616-87-0016,B,Mandalay,Normal,Male,Fashion accessories,95.54,7,33.439,702.219,3/9/2019,14:36,Credit card,668.78,4.761904762,33.439,9.6
+127-47-6963,A,Yangon,Normal,Male,Health and beauty,51.71,4,10.342,217.182,3/9/2019,13:53,Credit card,206.84,4.761904762,10.342,9.8
+277-35-5865,C,Naypyitaw,Member,Female,Food and beverages,98.97,9,44.5365,935.2665,3/9/2019,11:23,Cash,890.73,4.761904762,44.5365,6.7
+816-57-2053,A,Yangon,Normal,Male,Sports and travel,60.87,2,6.087,127.827,3/9/2019,12:37,Ewallet,121.74,4.761904762,6.087,8.7
+299-29-0180,B,Mandalay,Member,Female,Home and lifestyle,52.18,7,18.263,383.523,3/9/2019,10:54,Cash,365.26,4.761904762,18.263,9.3
+652-43-6591,A,Yangon,Normal,Female,Fashion accessories,97.29,8,38.916,817.236,3/9/2019,13:18,Credit card,778.32,4.761904762,38.916,6.2
