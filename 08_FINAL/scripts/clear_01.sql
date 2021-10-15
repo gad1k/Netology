@@ -8,13 +8,15 @@ begin
   end loop;
   
   for tab in (select table_name 
-                from USER_TABLES)
+                from USER_TABLES
+               where table_name not like 'AI_%')
   loop
     execute immediate 'truncate table ' || tab.table_name;
   end loop;
   
   for seq in (select sequence_name 
-                from USER_SEQUENCES)
+                from USER_SEQUENCES
+               where sequence_name not like 'STAGE_ID')
   loop
     execute immediate 'drop sequence ' || seq.sequence_name;
     
